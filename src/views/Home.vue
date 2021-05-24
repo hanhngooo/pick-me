@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <h1>Adopt a pet</h1>
-    {{ animalsCount }}
     <button @click="togglePetForm" class="btn btn-primary">
       Add a new pet
     </button>
@@ -64,11 +63,9 @@ export default {
     handleSubmitForm() {
       const { name, age, type } = this.formData
       const payload = {
-        type,
-        pet: {
-          name,
-          age
-        }
+        name,
+        age,
+        type
       }
       this.addPet(payload)
       // reset form

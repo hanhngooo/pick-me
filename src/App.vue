@@ -2,14 +2,33 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/cats">Cat</router-link> |
-      <router-link to="/dogs">Dogs</router-link> |
+      <router-link to="/cats"
+        >Cat ({{ getAllCertainType('cats').length }})</router-link
+      >
+      |
+      <router-link to="/dogs"
+        >Dogs ({{ getAllCertainType('dogs').length }})</router-link
+      >
+      |
     </div>
     <b-container>
       <router-view />
     </b-container>
   </div>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  data() {
+    return {}
+  },
+  computed: {
+    ...mapGetters(['getAllCertainType'])
+  }
+}
+</script>
 
 <style lang="scss">
 #app {

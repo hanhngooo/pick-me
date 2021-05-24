@@ -1,5 +1,5 @@
 export default {
-  appendPet: (state, { type, pet }) => {
-    state[type].push(pet)
+  appendPet: (state, pet) => {
+    state[pet.type].push(pet)
   }
 }
