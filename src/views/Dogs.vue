@@ -1,18 +1,25 @@
 <template>
   <div>
     <h1>Dogs for Adoption</h1>
-    <b-table striped hover :items="dogs" />
+    <b-table :fields="fields" :items="dogs">
+      <template #cell(name)="data">
+        <router-link :to="`/pet/dogs/${data.index}`">{{
+          data.value
+        }}</router-link>
+      </template>
+    </b-table>
   </div>
 </template>
 
 <script>
-import dogs from '@/data/dogs'
+import { mapState } from 'vuex'
 
 export default {
   data() {
-    return {
-      dogs
-    }
+    return {}
+  },
+  computed: {
+    ...mapState(['dogs'])
   }
 }
 </script>
